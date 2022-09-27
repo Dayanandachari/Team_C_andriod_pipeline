@@ -27,29 +27,8 @@ steps:
   parameters:
     jdkVersionOption: '$(jdkVersionOption)'
     Build_version: '$(Build_version)' 
- 
-  
-- task: CopyFiles@2
-  inputs:
-    contents: '**/*.apk'
-    targetFolder: '$(build.artifactStagingDirectory)'
-  displayName: Copy .apk files to artifact staging directory
-
-- task: PublishBuildArtifacts@1
-  inputs:
-    pathToPublish: '$(build.artifactStagingDirectory)'
-    artifactName: 'drop'
-    artifactType: 'container'
-  displayName: Publish artifacts
-
-- template: build_andriod_template.yml@andriod_templates
-  parameters:
     Key_password: '$(Key_password)'
     keystore_password: '$(keystore_password)'
-
-
-- template: build_andriod_template.yml@andriod_templates
-  parameters:
     serverEndpoint: '$(serverEndpoint)'
     appSlug: '$(appSlug)'
     releaseNotesInput: '$(releaseNotesInput)'
