@@ -22,5 +22,6 @@ steps:
   parameters:
     jdkVersionOption: '$(jdkVersionOption)'
     Build_version: '$(Build_version)' 
-
+    gradleOptions: '$(gradleOptions)'
+    tasks: '$(tasks)'
 
