@@ -13,7 +13,7 @@ pool:
   vmImage: 'macOS-latest'
 
 variables:
-- group: 'Andriod_variable_group_demo'
+- group: 'variable_group'
 
 resources: 
   repositories: 
