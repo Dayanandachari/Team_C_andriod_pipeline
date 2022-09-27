@@ -53,7 +53,7 @@ steps:
 
 - task: AppCenterDistribute@3
   inputs:
-    serverEndpoint: 'Appcenter_andriod_demo'
+    serverEndpoint: 'team_c_app_center_connection'
     appSlug: 'dayanandachari.v-nagarro.com/practice_andriod'
     appFile: 'app/build/outputs/apk/app-prod-debug.apk'
     symbolsOption: 'Android'
