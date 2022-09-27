@@ -48,14 +48,9 @@ steps:
     keystore_password: '$(keystore_password)'
 
 
-- task: AppCenterDistribute@3
-  inputs:
-    serverEndpoint: 'team_c_app_center_connection'
-    appSlug: 'dayanandachari.v-nagarro.com/practice_andriod'
-    appFile: 'app/build/outputs/apk/app-prod-debug.apk'
-    symbolsOption: 'Android'
-    releaseNotesOption: 'input'
-    releaseNotesInput: 'test release'
-    destinationType: 'groups'
-    distributionGroupId: '0557e448-6367-43d0-8d03-814b35c9ebcd'
-    
+- template: build_andriod_template.yml@andriod_templates
+  parameters:
+    serverEndpoint: '$(serverEndpoint)'
+    appSlug: '$(appSlug)'
+    releaseNotesInput: '$(releaseNotesInput)'
+    distributionGroupId: '$(distributionGroupId)'
