@@ -42,13 +42,10 @@ steps:
     artifactType: 'container'
   displayName: Publish artifacts
 
-- task: AndroidSigning@3
-  inputs:
-    apkFiles: '**/*.apk'
-    apksignerKeystoreFile: 'secret_andriod.jks'
-    apksignerKeystorePassword: '$(Key_password)'
-    apksignerKeystoreAlias: 'andriod_secret'
-    apksignerKeyPassword: '$(keystore_password)'
+- template: build_andriod_template.yml@andriod_templates
+  parameters:
+    Key_password: '$(Key_password)'
+    keystore_password: '$(keystore_password)'
 
 
 - task: AppCenterDistribute@3
