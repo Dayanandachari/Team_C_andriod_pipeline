@@ -31,5 +31,5 @@ stages:
         tasks: '$(tasks)'
     
     - script: python3 slack3.py -m " Test stage has failed "
-    condition: failed()
+      condition: failed()
 
