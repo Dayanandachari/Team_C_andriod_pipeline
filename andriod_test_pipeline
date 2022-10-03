@@ -34,4 +34,6 @@ stages:
         pip3 install requests
         python3 slack3.py -m " Test stage has failed "
       condition: failed()
+      env:
+        slack_webhook_url: $(webhook)
 
