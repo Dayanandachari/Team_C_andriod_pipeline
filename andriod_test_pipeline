@@ -8,7 +8,7 @@ pool:
   vmImage: 'macOS-latest'
 
 variables:
-- group: 'Andriod_variable_group_demo'
+- group: 'variable_group'
 
 resources: 
   repositories: 
@@ -17,10 +17,19 @@ resources:
       name: Dayanandachari/andriod_templates
       endpoint: 'Dayanandachari'
 
-steps:
-- template: Test_andriod_template.yml@andriod_templates
-  parameters:
-    jdkVersionOption: '$(jdkVersionOption)'
-    Build_version: '$(Build_version)' 
 
+stages:
+- stage: Test
+  jobs:
+  - job: UnitTest 
+    steps:
+    - template: Test_andriod_template.yml@andriod_templates
+      parameters:
+        jdkVersionOption: '$(jdkVersionOption)'
+        Build_version: '$(Build_version)' 
+        gradleOptions: '$(gradleOptions)'
+        tasks: '$(tasks)'
+    
+    - script: python3 slack3.py -m " Test stage has failed "
+      condition: failed()
 

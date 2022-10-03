@@ -103,7 +103,7 @@ public class TasksPresenterTest {
         inOrder.verify(mTasksView).setLoadingIndicator(false);
         ArgumentCaptor<List> showTasksArgumentCaptor = ArgumentCaptor.forClass(List.class);
         verify(mTasksView).showTasks(showTasksArgumentCaptor.capture());
-        assertTrue(showTasksArgumentCaptor.getValue().size() == 3);
+        assertTrue(showTasksArgumentCaptor.getValue().size() == 0);
     }
 
     @Test
