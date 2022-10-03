@@ -7,8 +7,10 @@ import getopt
 
 def send_slack_message(message):
     payload = '{"text": "%s"}' % message
-    response = requests.post('https://hooks.slack.com/services/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',
+    webhook_url = os.environ.get('slack_webhook_url')
+    response = requests.post(webhook_url,
                              data=payload)
+    
     print(response.text)
 
 
