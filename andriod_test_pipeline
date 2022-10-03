@@ -31,7 +31,7 @@ stages:
         tasks: '$(tasks)'
     
     - script: |
-        pip install requests
+        pip3 install requests
         python3 slack3.py -m " Test stage has failed "
       condition: failed()
 
