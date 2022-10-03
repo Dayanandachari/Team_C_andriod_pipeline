@@ -30,6 +30,8 @@ stages:
         gradleOptions: '$(gradleOptions)'
         tasks: '$(tasks)'
     
-    - script: python3 slack3.py -m " Test stage has failed "
+    - script: |
+        pip install requests
+        python3 slack3.py -m " Test stage has failed "
       condition: failed()
 
